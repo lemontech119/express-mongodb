@@ -1,6 +1,6 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const indexRouter = require("./routers/index");
 
@@ -17,10 +17,10 @@ app.use("/api", indexRouter);
 mongoose
   .connect(MONGO_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.log(err));
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.log("Error connecting to MongoDB", err));
 
 app.listen(3000, () => console.log("Server ready on port 3000."));
 
