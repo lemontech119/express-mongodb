@@ -1,10 +1,17 @@
 const express = require("express");
 
-const { getUserByTest, googleSignUp } = require("../controllers");
+const { midAuthentication } = require("../middlewares");
+
+const {
+  getUserByTest,
+  googleSignUp,
+  getMyUserData,
+} = require("../controllers");
 
 const router = express.Router();
 
 router.get("/test", getUserByTest);
-router.post("/google/signup", googleSignUp);
+router.get("/me", midAuthentication, getMyUserData);
+router.post("/google/login", googleSignUp);
 
 module.exports = router;

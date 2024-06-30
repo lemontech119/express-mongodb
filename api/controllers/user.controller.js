@@ -1,4 +1,4 @@
-const { signUpGoogleUser, readGoogleUser } = require("../models");
+const { signUpGoogleUser, readGoogleUser, readUserById } = require("../models");
 const { getUserInfoForGoogle } = require("../services");
 const { tokenGenerator } = require("../utils");
 
@@ -21,7 +21,16 @@ const googleSignUp = async (req, res) => {
   });
 };
 
+const getMyUserData = async (req, res) => {
+  const userId = req.userId;
+
+  const user = await readUserById(userId);
+
+  return res.json(user);
+};
+
 module.exports = {
   getUserByTest,
   googleSignUp,
+  getMyUserData,
 };

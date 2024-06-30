@@ -1,6 +1,11 @@
-const { getUserByTest, googleSignUp } = require("./user.controller");
+const {
+  getUserByTest,
+  googleSignUp,
+  getMyUserData,
+} = require("./user.controller");
 
 module.exports = {
   getUserByTest,
   googleSignUp,
+  getMyUserData,
 };

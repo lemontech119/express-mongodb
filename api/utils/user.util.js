@@ -15,6 +15,14 @@ const tokenGenerator = (userId) => {
   return token;
 };
 
+const jwtVerify = (token) => {
+  const secret = process.env.SECRET_KEY;
+
+  const { userId } = jwt.verify(token, secret);
+  return userId;
+};
+
 module.exports = {
   tokenGenerator,
+  jwtVerify,
 };

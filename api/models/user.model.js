@@ -19,7 +19,14 @@ const readGoogleUser = async (platformId) => {
   return user;
 };
 
+const readUserById = async (userId) => {
+  const user = await userSchema.findById(userId);
+
+  return user;
+};
+
 module.exports = {
   signUpGoogleUser,
   readGoogleUser,
+  readUserById,
 };
